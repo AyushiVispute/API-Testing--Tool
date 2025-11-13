@@ -1,33 +1,40 @@
 # ui/viewer.py
-import json
-from tkinter import filedialog, messagebox
 
-def save_response_to_file(response_text):
-    """
-    Prompt user to save the response displayed in the UI.
-    Tries to save prettified JSON if possible, otherwise saves as plain text.
-    """
-    if not response_text or not response_text.strip():
-        messagebox.showinfo("Info", "No response to save.")
-        return
+import customtkinter as ctk
+from ui.components.tree_viewer import build_json_tree
 
-    path = filedialog.asksaveasfilename(
-        defaultextension=".txt",
-        filetypes=[("JSON files", "*.json"), ("Text files", "*.txt")]
-    )
-    if not path:
-        return
 
-    try:
-        # try to parse as JSON and pretty-print
+class ResponseRaw(ctk.CTkFrame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        self.textbox = ctk.CTkTextbox(self, wrap="word")
+        self.textbox.pack(fill="both", expand=True, padx=8, pady=8)
+
+    def update_text(self, text: str):
+        self.textbox.delete("1.0", "end")
+        self.textbox.insert("end", text)
+
+    def get_text(self):
+        return self.textbox.get("1.0", "end")
+
+
+class ResponseTree(ctk.CTkFrame):
+    def __init__(self, master):
+        super().__init__(master)
+
         try:
-            parsed = json.loads(response_text)
-            with open(path, "w", encoding="utf-8") as f:
-                json.dump(parsed, f, ensure_ascii=False, indent=4)
-        except Exception:
-            # fallback: save raw text
-            with open(path, "w", encoding="utf-8") as f:
-                f.write(response_text)
-        messagebox.showinfo("Saved", f"Response saved to {path}")
-    except Exception as e:
-        messagebox.showerror("Error", f"Failed to save: {e}")
+            self.tree = ctk.CTkTreeview(self)
+        except:
+            from tkinter import ttk
+            self.tree = ttk.Treeview(self)
+
+        self.tree.pack(fill="both", expand=True, padx=8, pady=8)
+
+    def load_json(self, data):
+        self.clear()
+        build_json_tree(self.tree, "", data)
+
+    def clear(self):
+        for item in self.tree.get_children():
+            self.tree.delete(item)
