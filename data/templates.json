@@ -4,5 +4,23 @@
     "method": "GET",
     "headers": "",
     "body": ""
+  },
+  "pokemon": {
+    "url": "https://pokeapi.fly.dev/create\n",
+    "method": "GET",
+    "headers": "",
+    "body": ""
+  },
+  "get_request": {
+    "url": "https://jsonplaceholder.typicode.com/posts/1\n",
+    "method": "GET",
+    "headers": "",
+    "body": "{\n    \"x\": 1,\n    \"y\": 2\n}"
+  },
+  "body_temp": {
+    "url": "https://jsonplaceholder.typicode.com/posts/1\n",
+    "method": "GET",
+    "headers": "",
+    "body": "{\n    \"x\": 1,\n    \"y\": 2\n}"
   }
 }
