@@ -6,10 +6,10 @@ A modern API testing application built during my internship using Python & Custo
 ## 📸 Screenshots
 
 ### 🔹 Home Screen
-![Home Screenshot](assets/screenshots/home.png)
+![Home Screenshot](assets/home.png)
 
 ### 🔹 Settings Screen
-![Settings](assets/screenshots/settings.png)
+![Settings](assets/settings.png)
 
 ---
 
