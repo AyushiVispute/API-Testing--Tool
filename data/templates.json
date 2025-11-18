@@ -12,10 +12,10 @@
     "body": ""
   },
   "get_request": {
-    "url": "https://jsonplaceholder.typicode.com/posts/1\n",
+    "url": "https://jsonplaceholder.typicode.com/posts",
     "method": "GET",
     "headers": "",
-    "body": "{\n    \"x\": 1,\n    \"y\": 2\n}"
+    "body": ""
   },
   "body_temp": {
     "url": "https://jsonplaceholder.typicode.com/posts/1\n",
