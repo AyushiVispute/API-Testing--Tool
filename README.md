@@ -13,11 +13,6 @@ A modern API testing application built during my internship using Python & Custo
 
 ---
 
-## 🎥 Demo Video
-GitHub does NOT allow playing MP4 inside README.  
-Click below to watch:
-
-[![Demo Video](https://img.icons8.com/?size=512&id=59863&format=png)](https://github.com/AyushiVispute/API-Testing--Tool/raw/main/Api_testing.mp4.copy.mp4)
 
 ---
 ## ✨ Features
